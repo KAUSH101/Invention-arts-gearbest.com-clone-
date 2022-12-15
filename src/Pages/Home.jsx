@@ -1,14 +1,10 @@
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
-import Carousel from "../Components/Carousel";
+import Sidebar from "../Components/Sidebars";
+
 function Home(){
     return(
         <div>
-<Navbar/>
-<Carousel/>
-<Footer/>
+<Sidebar/>  
         </div>
-        
     )
 }
 export default Home
