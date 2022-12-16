@@ -1,0 +1,61 @@
+#mainFooter{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background-color: rgb(108,111,114);
+    text-align: justify;
+    margin-bottom: 0px;
+
+}
+#mainFooter div{
+    width: 20%;
+  
+
+}
+#mainFooter h2{
+    color: white;
+    margin: 10px;
+    line-height: 30px
+}
+#mainFooter h4{
+    color:  white;
+    margin: 10px;
+    line-height: 20px
+}
+#mainFooter p{
+    color:  white;
+    margin: 10px;
+    line-height: 20px
+}
+#mainFooter img{
+    
+    margin: 10px;
+    
+}
+#mainFooter button{
+    background-color: #0069ff;
+    border: none;
+    margin: 10px;
+   color: white;    
+   width: 80px;
+   height: 50px;
+}
+#mainFooter input{
+    
+    margin: 10px;
+    width: 180px;
+    height: 50px;
+    
+}
+
+#bottom{
+    width: 100%;
+    background-color: #1b1d20;
+    color: #918f91;
+   height: 110px;
+  text-align: center;
+
+}
+#bottomPage{
+    background-color: #1b1d20;
+}

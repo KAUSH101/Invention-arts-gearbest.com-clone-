@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import Carousel from './Carousel';
 import {
   IconButton,
   Box,
@@ -25,22 +26,30 @@ import {
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 
-// interface LinkItemProps {
-//   name: string;
-//   icon: IconType;
-// }
-// const LinkItems: Array<LinkItemProps> = [
-//   { name: 'Home', icon: FiHome },
-//   { name: 'Trending', icon: FiTrendingUp },
-//   { name: 'Explore', icon: FiCompass },
-//   { name: 'Favourites', icon: FiStar },
-//   { name: 'Settings', icon: FiSettings },
-// ];
 
-export default function Sidebar() {
+const LinkItems = [
+  { name: 'Consumer Electronics' },
+  { name: 'Industrial & Scientific'  },
+  { name: 'Cell Phones & Accessories'},
+  { name: 'Appliances' },
+  { name: 'Computers, Tablets & Office' },
+  { name: 'Health & Personal Care' },
+  { name: 'Home Improvement & Tools' },
+  { name: 'Drones, Toys & Hobbies' },
+  { name: 'Home & Garden' },
+  { name: 'Motor & Car Electronics' },
+  { name: 'Mens Fashion' },
+  { name: 'Watches & Jewelry' },
+  { name: 'Gearbestt Promotion' },
+  
+];
+
+export default function Sidebar({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
+    
+  
+    <Flex minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
@@ -60,9 +69,11 @@ export default function Sidebar() {
       {/* mobilenav */}
       <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-       
+        {children}
       </Box>
-    </Box>
+     
+    </Flex>
+
   );
 }
 
@@ -75,32 +86,35 @@ const SidebarContent = ({ onClose, ...rest }) => {
       borderRight="1px"
       borderRightColor={useColorModeValue('gray.200', 'gray.700')}
       w={{ base: 'full', md: 60 }}
-      pos="fixed"
+    //   pos="fixed"
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+        {/* <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
           Logo
-        </Text>
+        </Text> */}
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {/* {LinkItems.map((link) => (
+      {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon}>
           {link.name}
         </NavItem>
-      ))} */}
+      ))}
+     
     </Box>
   );
 };
+
 
 const NavItem = ({ icon, children, ...rest }) => {
   return (
     <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
-        p="4"
+        p="2"
         mx="4"
         borderRadius="lg"
+        fontSize="12px"
         role="group"
         cursor="pointer"
         _hover={{
@@ -144,9 +158,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
         icon={<FiMenu />}
       />
 
-      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
+      {/* <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
         Logo
-      </Text>
+      </Text> */}
     </Flex>
   );
 };

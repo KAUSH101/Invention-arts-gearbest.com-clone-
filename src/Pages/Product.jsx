@@ -1,20 +1,44 @@
-<Stack spacing={4}>
-  <InputGroup>
-    <InputLeftElement
-      pointerEvents='none'
-      children={<PhoneIcon color='gray.300' />}
-    />
-    <Input type='tel' placeholder='Phone number' />
-  </InputGroup>
+// main product page
+import axios from "axios"
+import {  Grid,
+    GridItem} from "@chakra-ui/react"
+import {useEffect,useState} from "react"
+import ProductCard from "../Components/Productcard"
+const Product=()=>{
+const [data,setData] = useState([])
+useEffect(()=>{
+axios.get(`http://localhost:3004/phones`).then((res)=>{
+    console.log(res.data)
+    setData(res.data)
+})
+},[])
 
-  <InputGroup>
-    <InputLeftElement
-      pointerEvents='none'
-      color='gray.300'
-      fontSize='1.2em'
-      children='$'
-    />
-    <Input placeholder='Enter amount' />
-    <InputRightElement children={<CheckIcon color='green.500' />} />
-  </InputGroup>
-</Stack>
+    return(
+<>
+<Grid templateColumns='repeat(4, 1fr)' gap={6}> 
+    {/* mapping product */}
+{
+    data?.length>0 && data.map((e)=>{
+return (
+<GridItem key={e.id} >
+    {/* mapping in card */}
+<ProductCard
+
+image={e.image}
+id={e.id}
+price2={e.price2}
+price={e.price}
+
+title={e.title}
+
+/>
+</GridItem>
+     ) })
+}
+
+</Grid>
+
+</>
+    )
+}
+export default Product

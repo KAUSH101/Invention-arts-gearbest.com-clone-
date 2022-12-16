@@ -1,37 +1,37 @@
 import React from "react"
-// import {AuthContext} from "../Context/Authcontext";
-// import {Link,Navigate,useNavigate} from "react-router-dom"
+import {AuthContext} from "../Context/Authcontext";
+import {Link,Navigate,useNavigate} from "react-router-dom"
 function Login() {
 const[email,setEmail] = React.useState("")
 const[password,setPassword] = React.useState("")
 // const navigate = useNavigate()
 const{authState,loginUser} = React.useContext(AuthContext)
 
-// const handleSubmit=async(e)=>{
-//   e.preventDefault()
-//   try {
-//     let res = await fetch(`https://reqres.in/api/login`,{
-//       method:"POST",
-//       headers:{
-//         "Content-Type":"application/json"
-//       },
-//       body: JSON.stringify({
-//         email,
-//         password
-//       })
-//     });
-//     res = await res.json()
-//     loginUser(
-//       res.token
-//     )
-//   } catch (error) {
-//    console.log(error)
-//   }
+const handleSubmit=async(e)=>{
+  e.preventDefault()
+  try {
+    let res = await fetch(`https://reqres.in/api/login`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+    res = await res.json()
+    loginUser(
+      res.token
+    )
+  } catch (error) {
+   console.log(error)
+  }
 
-// }
-// if(authState.isAuth){
-//   return<Navigate to="/dashboard" />
-// }
+}
+if(authState.isAuth){
+  return<Navigate to="/dashboard" />
+}
 
 
   return (

@@ -1,167 +1,121 @@
-import { ReactNode } from 'react';
-
-import {
-  Box,
-  Flex,
-  Avatar,
-  Link,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  Center,
-  Image,
-  Text,
-  Input,
-
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import {FaRegUser, FaSearch} from "react-icons/fa"
-import {FiHeart} from "react-icons/fi"
-import {GrCart} from "react-icons/gr"
-
-
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}>
-    {children}
-  </Link>
-);
-
-export default function Navbar() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const style = { color:"black", height: "24px",width:"24px"}
+import { func } from "prop-types";
+import Carousel from "./Carousel";
+import "./Navbar.css"
+import Footer from "./Footer";
+import{  Box,
+    Flex,
+    Avatar,
+    Link,
+    Button,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuDivider,
+    useDisclosure,
+    useColorModeValue,
+    Stack,
+    useColorMode,
+    Center,
+    Image,
+    Text,
+    Input,} from "@chakra-ui/react"
+  import { GiHamburgerMenu } from "react-icons/gi";
+  import {FaRegUser, FaSearch} from "react-icons/fa"
+  import {FiHeart} from "react-icons/fi"
+  import {GrCart} from "react-icons/gr" 
+  import Product from "../Pages/Product";
+function Navbar(){
+    
+  const style = { marginTop:"33px", color:"black", height: "30px",width:"30px"}
+  const styleSearch = { color:"gray", height: "24px",width:"24px"}
   const stylep = {  color:"gray",fontSize:"20px",marginTop:"50px"}
   const styleSpan = {  color:"white", background:"red",marginLeft:"80%",width:"20%",borderRadius:"90%",marginTop:"5px"}
-  return (
-    <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>
-<Image
-marginTop="50px"
-height="130px"
-width="130px"
-src="https://images-platform.99static.com//pWE2G5QeOLg6uoK3dzt3FionJZ0=/385x0:1621x1236/fit-in/590x590/99designs-contests-attachments/59/59115/attachment_59115475"
-/>
-
-          </Box>
-
-          <Center
-          marginTop="50px"
+//   const [showMediaIcons, setShowMediaIcons] = useState(false);
+    return(
+        <div id="homep">  
+        <div className="mainNav" >
+            <div className="navSearch" >
+<div id="logo" >
+<img  width="120px" height="90%" src="https://drive.google.com/uc?export=view&id=1PDrnXQKTsjCBUtOzsORBkE66RlNhSFJO" />
+</div>
+<div id="searchbar" >
+<Center
+            className="inputbox"
+            marginTop="30px"
         //   border="0px solid yellow"
           borderRadius="10px"
-          width="35%"
+          width="75%"
           height="40px"
           justifyContent="space-between"
           background="yellow"
           >
            
 <Input
+className="input"
 border="none "
 outline="none"
-width="92%"
-height="36px"
+width="90%"
+height="35px"
 borderTopLeftRadius="10px"
 borderBottomLeftRadius="10px"
- placeholder='Search' />
-       <FaSearch />
+background="white"
+ placeholder='Search' 
+ style={{fontSize:"20px"}}
+ 
+ />
+       <FaSearch 
+       style={styleSearch}
+       />
        
           </Center>
-         
-         <Flex
-          marginTop="30px"
-        //  border="1px solid red"
-         width="30%"
-        justifyContent="space-between">
-           
 
-           <Stack>
-   
-           <p
-         
-style={stylep}
->
-   
-    <FaRegUser
-    
-         style={style}
-         /> Sign In
-         </p>
+</div>
+<div id="icons">
+<FaRegUser style={style}/>
 
+<span>
+<GrCart style={style}
+/>
+</span>
 
-           </Stack>
-                
+</div>
+            </div>
+        <div className="menu" >
+<div id="dropDown">
 
+<button id="ddBtn" >
+<GiHamburgerMenu/>
+    All Categories
 
+</button>
 
+</div>
+<div id="menuNav" >
 
-
-          
+<h3>Home</h3>
+<h3>All Collection</h3>
+<h3>Super Deals</h3>
+<h3>New Arrival</h3>
 
 
-       
-        
-<p
-style={stylep}
->
-<FiHeart
+</div>
+<div id="blank" ></div>
+        </div>
+        </div>
+        <div id="poster" >
+            {/* <img  src="https://www.gearbest.com/u_file/2212/12/photo/105254957714338494-195a.jpg?x-oss-process=image/format,webp/resize,m_lfit,h_0,w_1920" alt="poster" /> */}
+            <Carousel/>
 
-      style={style}
-     /> Favourite
-    
-</p>
+        </div>
 
-
-   
-     <p
-      style={stylep}
-     >
-<GrCart
-        style={style}
-        /> cart
-        
-</p>
-
-
-
-         </Flex>
-    
-         
-      
-        
-         
-     
-         
-         
-       
-
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
-              {/* <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button> */}
-
-            
-            </Stack>
-          </Flex>
-        </Flex>
-      </Box>
-    
-    </>
-  );
+        <div id="products" >
+<Product/>
+        </div>
+        <div id="footer" >
+     <Footer/>
+        </div>
+        </div>
+    )
 }
+export default Navbar
