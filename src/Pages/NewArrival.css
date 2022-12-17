@@ -1,0 +1,34 @@
+#header{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+#header select{
+    border: none;
+    outline: none;
+}
+#header h1{
+    color: tomato;
+
+}
+#paginate{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#paginate h5{
+    color: tomato;
+    margin: 20px;
+}
+#paginate button{
+    border-radius: 100%;
+    color: white;
+    background-color: gray;
+    margin: 3px;
+    border: none;
+    cursor: pointer;
+
+ 
+}
