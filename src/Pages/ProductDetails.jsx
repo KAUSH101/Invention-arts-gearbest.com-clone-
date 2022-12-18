@@ -14,7 +14,7 @@ import axios from 'axios';
     console.log(id)
 useEffect(()=>{
     axios
-    .get(`http://localhost:3004/phones/${id}`)
+    .get(`https://json-fev1.onrender.com/phones/${id}`)
     .then(({data})=>{
         setProduct(data)
     })
@@ -39,13 +39,17 @@ console.log(product)
         <h3 style={{color:"tomato"}}>${price}</h3>
         </div>
         <div id="qnt" >
-            <p>QNT</p>
-            <button onClick={()=>{setCount(count-1)}} >-</button>
-            <button >{count}</button>
-            <button onClick={()=>{setCount(count+1)}}>+</button>
+            {/* <p style={{color:"tomato"}} >QUANTITY:</p>
+            <button  disabled={count===1} style={{color:"red"}} onClick={()=>{setCount(count-1)}} >
+               <h3>-</h3> </button>
+            <button style={{color:"blue"}} > <h3>{count}</h3> </button>
+            <button style={{color:"green"}} onClick={()=>{setCount(count+1)}}>
+                <h3>+</h3>
+                </button> */}
         </div>
         <div id="btns" >
-            <button>Add to Cart</button>
+        <RouterLink  to={`/cart/${id}`} ><button  >Add to Cart</button></RouterLink >
+            
             <button>Buy Now</button>
         </div>
         

@@ -20,7 +20,7 @@ function Newarrival(){
   
    
 useEffect(()=>{
-axios.get(`http://localhost:3004/phones?_page=${page}&_limit=20`).then((res)=>{
+axios.get(`https://json-fev1.onrender.com/phones?_page=${page}&_limit=20`).then((res)=>{
     console.log(res.data)
     setData(res.data)
     
@@ -66,19 +66,19 @@ axios.get(`http://localhost:3004/phones?_page=${page}&_limit=20`).then((res)=>{
 
               const  DescData=async(page)=>{
                
-                let res = await fetch(`http://localhost:3004/phones?_page=${page}&_limit=20&_sort=price&_order=desc`)
+                let res = await fetch(`https://json-fev1.onrender.com/phones?_page=${page}&_limit=20&_sort=price&_order=desc`)
                 let data = await res.json()
                 setData(data);
             }
               const  AscData=async(page)=>{
                
-                let res = await fetch(`http://localhost:3004/phones?_page=${page}&_limit=20&_sort=price&_order=asc`)
+                let res = await fetch(`https://json-fev1.onrender.com/phones?_page=${page}&_limit=20&_sort=price&_order=asc`)
                 let data = await res.json()
                 setData(data);
             }
               const  All=async(page)=>{
                
-                let res = await fetch(`http://localhost:3004/phones?_page=${page}&_limit=20`)
+                let res = await fetch(`https://json-fev1.onrender.com/phones?_page=${page}&_limit=20`)
                 let data = await res.json()
                 setData(data);
             }

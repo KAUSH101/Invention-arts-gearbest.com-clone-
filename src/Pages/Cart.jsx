@@ -12,7 +12,11 @@ import {
   import {useParams} from "react-router-dom"
   import { useEffect,useState } from 'react';
   import axios from 'axios';
-  import Model from '../Components/Modal';
+  import {Link} from "react-router-dom"
+  import Navbar from '../Components/Navbar';
+  import Footer from '../Components/Footer';
+
+//   import Model from '../Components/Modal';
   export default function Cart() {
 
 const [cart,setCart] = useState({})
@@ -21,13 +25,13 @@ const {id} = useParams()
 
 useEffect(()=>{
     axios
-    .get(`http://localhost:3004/phones/${id}`)
+    .get(`https://json-fev1.onrender.com/phones/${id}`)
     .then(({data})=>{
         setCart(data)
     })
     .catch((err)=>console.log(err))
 },[id])
-const {image,description,title,price,category}=cart
+const {image,title,price,price2}=cart
 
 function add(){
     setCount(count+1)
@@ -36,17 +40,26 @@ function sub(){
     setCount(count-1)
 }
     return (
+        <div>
+            <Navbar/>
       <Center py={12}>
-        <Box
+        
+        <Box 
           role={'group'}
           p={6}
           maxW={'330px'}
           w={'full'}
           bg={useColorModeValue('white', 'gray.800')}
-          boxShadow={'2xl'}
+        //   boxShadow={'2xl'}
           rounded={'lg'}
           pos={'relative'}
-          zIndex={1}>
+          zIndex={1}
+          justifyContent={'center'}
+      
+          alignItems={'center'}
+          boxShadow= {"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"}
+          >
+            
           <Box
             rounded={'lg'}
             mt={-12}
@@ -78,33 +91,35 @@ function sub(){
             />
           </Box>
           <Stack pt={10} align={'center'}>
-            <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
+            <Text style={{color:"gray"}}   color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
               {title}
             </Text>
-            <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-              {description}
-            </Heading>
+          
             <Stack direction={'row'} align={'center'}>
-              <Text fontWeight={800} fontSize={'xl'}>
+              <Text style={{color:"tomato"}}   fontWeight={800} fontSize={'xl'}>
                 {price}
               </Text>
-              <Text textDecoration={'line-through'} color={'gray.600'}>
-                {price*1.2}
+              <Text style={{color:"gray"}}   textDecoration={'line-through'} color={'gray.600'}>
+                {price2}
               </Text>
             </Stack>
           <Flex>
-            <button  onClick={()=>sub(-1)}>-</button>
+            <button style={{border:"none" , color:"red"}}  onClick={()=>sub(-1)}>-</button>
             <Text   >{count}</Text>
-                <button onClick={()=>add(1)} >+</button>
+                <button style={{border:"none" , color:"green"}}  onClick={()=>add(1)} >+</button>
                 </Flex>
-                <Text>
+                <Text style={{color:"tomato"}}  >
                     Total price:{count*price}
                 </Text>
           
           </Stack>
           {/* linking model(popup) on click */}
-          <Model/>
+          <Link to={"/login"} >   <button style={{marginTop:"12px",width:"100%",background:"green",color:"white",border:"none",height:"32px",cursor:"pointer"}}   >Check Out</button></Link>
+   
         </Box>
+        
       </Center>
+      <Footer/>
+      </div>
     );
   }

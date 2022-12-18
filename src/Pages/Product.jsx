@@ -7,7 +7,7 @@ import ProductCard from "../Components/Productcard"
 const Product=()=>{
 const [data,setData] = useState([])
 useEffect(()=>{
-axios.get(`http://localhost:3004/phones?_page=1&_limit=20`).then((res)=>{
+axios.get(`https://json-fev1.onrender.com/phones?_page=1&_limit=20`).then((res)=>{
     console.log(res.data)
     setData(res.data)
 })

@@ -1,72 +1,25 @@
-import React from "react"
-import {AuthContext} from "../Context/Authcontext";
-import {Link,Navigate,useNavigate} from "react-router-dom"
-function Login() {
-const[email,setEmail] = React.useState("")
-const[password,setPassword] = React.useState("")
-// const navigate = useNavigate()
-const{authState,loginUser} = React.useContext(AuthContext)
-
-const handleSubmit=async(e)=>{
-  e.preventDefault()
-  try {
-    let res = await fetch(`https://reqres.in/api/login`,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body: JSON.stringify({
-        email,
-        password
-      })
-    });
-    res = await res.json()
-    loginUser(
-      res.token
-    )
-  } catch (error) {
-   console.log(error)
-  }
-
-}
-if(authState.isAuth){
-  return<Navigate to="/dashboard" />
-}
-
-
+import "./Login.css"
+import {Link} from "react-router-dom"
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
+export default function Login() {
   return (
-    <div>
-      <form onSubmit={handleSubmit} data-testid="login-form">
-        <div>
-          <label>
-            Email
-            <input onChange={(e)=>setEmail(e.target.value)} 
-            value={email}
-            data-testid="email-input" type="email" placeholder="email" />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password
-            <input
-            onChange={(e)=>setPassword(e.target.value)}
-              data-testid="password-input"
-              type="password"
-              value={password}
-              placeholder="password"
-            />
-          </label>
-        </div>
-        <div> 
-          <input 
+    <div id="main" >
+      <Navbar/>
+    <div id="login" >
+      <form id="form" >
+    <h1>Login</h1>
+        <input type="email"  placeholder="Enter your email" />
+        <br />
+        <input type="Password"   placeholder="Enter your password"  />
+        <br />
+        <Link to={"/checkout"} ><button>Login</button></Link>
         
-           data-testid="form-submit" type="submit" value="SUBMIT" />
-        </div>
+        <p>Not Have An Account?  <Link to={"/signup" }  >Sign Up</Link> </p>
       </form>
-      <div>
-        {/* <Link to="/">Go Back</Link> */}
-      </div>
+
+    </div>
+    <Footer/>
     </div>
   );
 }
-export default Login;
