@@ -25,6 +25,7 @@ import{  Box,
   import {FiHeart} from "react-icons/fi"
   import {GrCart} from "react-icons/gr" 
   import Product from "../Pages/Product";
+  import {Link as RouterLink} from "react-router-dom"
 function Navbar(){
     
   const style = { marginTop:"33px", color:"black", height: "30px",width:"30px"}
@@ -92,29 +93,30 @@ background="white"
 
 </div>
 <div id="menuNav" >
+<RouterLink style={{textDecoration:"none" , color:"gray"}} to={`/`} ><h3>Home</h3></RouterLink>
 
-<h3>Home</h3>
 <h3>All Collection</h3>
 <h3>Super Deals</h3>
-<h3>New Arrival</h3>
+<RouterLink style={{textDecoration:"none" , color:"gray"}} to={`/newarrival`} ><h3>New Arrival</h3></RouterLink>
+
 
 
 </div>
 <div id="blank" ></div>
         </div>
         </div>
-        <div id="poster" >
-            {/* <img  src="https://www.gearbest.com/u_file/2212/12/photo/105254957714338494-195a.jpg?x-oss-process=image/format,webp/resize,m_lfit,h_0,w_1920" alt="poster" /> */}
-            <Carousel/>
+        {/* <div id="poster" >
+            <img  src="https://www.gearbest.com/u_file/2212/12/photo/105254957714338494-195a.jpg?x-oss-process=image/format,webp/resize,m_lfit,h_0,w_1920" alt="poster" /> 
+             <Carousel/>
 
-        </div>
+        </div> */}
 
-        <div id="products" >
+        {/* <div id="products" >
 <Product/>
-        </div>
-        <div id="footer" >
+        </div> */}
+        {/* <div id="footer" >
      <Footer/>
-        </div>
+        </div> */}
         </div>
     )
 }

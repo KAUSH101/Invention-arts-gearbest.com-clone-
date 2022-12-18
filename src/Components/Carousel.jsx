@@ -12,7 +12,7 @@ const Carousel = () => {
   const containerStyles = {
     width: "100%",
     height: "500px",
-    margin: "0 auto",
+    marginBottom: "20px",
   };
   return (
     <div>

@@ -1,8 +1,9 @@
 import axios from "axios"
-
+import { useEffect,useState } from "react"
 const getData=()=>{
    
-axios.get(`http://localhost:3004/phones`)
+axios.get(`https://json-fev1.onrender.com/phones`)
     
 }
 export default getData
+
