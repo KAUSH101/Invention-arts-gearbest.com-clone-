@@ -8,6 +8,7 @@ import Newarrival from "./NewArrival";
 import Newarrivalproduct from "./Newarrivalproduct";
 import Cart from "./Cart";
 import Checkout from "./Checkout.";
+import Shoppingcart from "./Shoppingcart";
 // import Cart from "./Cart";
 function AllRoutes() {
   return <div>
@@ -23,6 +24,8 @@ function AllRoutes() {
     {/* <Route path="/login" element={<Login />}/> */}
     <Route path="/phones" element={<Product/>} />
     <Route path="/phones/:id" element={<ProductDetails/>} />
+    <Route path="/cart" element={<Cart/>} />
+    <Route path="/shoppingcart" element={<Shoppingcart/>} />
     <Route path="/cart/:id" element={<Cart/>} />
      
    

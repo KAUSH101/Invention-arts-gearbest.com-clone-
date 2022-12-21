@@ -38,7 +38,9 @@ function Navbar(){
         <div className="mainNav" >
             <div className="navSearch" >
 <div id="logo" >
+<RouterLink to={'/'} >
 <img  width="120px" height="90%" src="https://drive.google.com/uc?export=view&id=1PDrnXQKTsjCBUtOzsORBkE66RlNhSFJO" />
+</RouterLink>
 </div>
 <div id="searchbar" >
 <Center
@@ -73,13 +75,14 @@ background="white"
 
 </div>
 <div id="icons">
-<FaRegUser style={style}/>
-
+<RouterLink to={'/login'}>
+<FaRegUser style={style}/></RouterLink>
+<RouterLink to={'/shoppingcart'} >
 <span>
 <GrCart style={style}
 />
 </span>
-
+</RouterLink>
 </div>
             </div>
         <div className="menu" >

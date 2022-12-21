@@ -1,9 +1,12 @@
 import axios from "axios"
 import { useEffect,useState } from "react"
-const getData=()=>{
-   
-axios.get(`https://json-fev1.onrender.com/phones`)
+export  const getData=()=>{
+   return axios.get(`https://json-fev1.onrender.com/posts`)
     
 }
-export default getData
+export  const removeData=(id)=>{
+   axios.delete(`https://json-fev1.onrender.com/posts/${id}`)
+    
+}
+
 
