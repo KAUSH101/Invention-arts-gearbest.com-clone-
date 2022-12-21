@@ -1,0 +1,53 @@
+#card{
+    display: flex;
+    height: auto;
+
+margin: 5px;
+/* align-items: center;
+justify-content: center;
+text-align: center; */
+}
+#card img{
+    width: 200px;
+    height: 200px;
+}
+
+#main{
+    width: 100%;
+height: auto;
+
+/* display: grid;
+    grid-template-columns: repeat(2,1fr); */
+    
+}
+#rem{
+    background-color: red;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+    height: 30px;
+    margin: auto;
+}
+#card button{
+    border: none;
+    height: 30px;
+    margin: auto;
+}
+#price{
+    color: tomato;
+    margin: auto;
+}
+#sub{
+    color: red;
+}
+#add{
+    color: green;
+}
+#qn{
+    margin: auto; 
+    color: teal;
+}
+#title{
+    margin: 5px; 
+  color: gray;
+}

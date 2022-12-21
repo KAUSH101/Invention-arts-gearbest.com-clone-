@@ -22,6 +22,13 @@ useEffect(()=>{
 },[id])
 const {image,title,price,price2}=product
 console.log(product)
+
+function addtocart(obj){
+    axios.post(`https://json-fev1.onrender.com/posts/`, obj)
+    .then((res)=>console.log(res))
+    .catch((err)=>console.log(err))
+}
+
     return (
    <div>
     <div id='navbar' >
@@ -48,9 +55,9 @@ console.log(product)
                 </button> */}
         </div>
         <div id="btns" >
-        <RouterLink  to={`/cart/${id}`} ><button  >Add to Cart</button></RouterLink >
-            
-            <button>Buy Now</button>
+        <button onClick={()=>addtocart(product)}  >Add to Cart</button>
+            <RouterLink to={'/login'} ><button>Buy Now</button></RouterLink>
+            {/* <RouterLink  to={`/cart/${id}`} ></RouterLink> */}
         </div>
         
       </div>
